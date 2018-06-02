@@ -44,6 +44,12 @@ is running on the same server.
 Run the following command to allow remote access to the mysql server:
 
     sudo ufw allow mysql
+    
+Note: you may have to edit the /etc/mysql/mysql.conf.d/mysqld.cnf  file and change:
+    bind-address = 127.0.0.1
+to 
+    bind-address = 0.0.0.0
+  
 
 ### Start the MySQL service
 
@@ -51,14 +57,14 @@ After the installation is complete, you can start the database service by
 running the following command. If the service is already started, a message
 informs you that the service is already running:
 
-    systemctl start mysql
+    sudo systemctl start mysql
 
 ### Launch at reboot
 
 To ensure that the database server launches after a reboot, run the following
 command:
 
-    systemctl enable mysql
+    sudo systemctl enable mysql
 
 ### Start the mysql shell
 
